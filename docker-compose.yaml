@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+
+  mstream:
+    image: lscr.io/linuxserver/mstream:latest
+    container_name: mstream
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ./data:/config
+      - ./music:/music
+    ports:
+      - "8200:3000"
+    restart: unless-stopped
+
+    
